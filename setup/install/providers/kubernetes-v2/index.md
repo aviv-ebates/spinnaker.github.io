@@ -78,6 +78,10 @@ kubectl config set-credentials ${CONTEXT}-token-user --token $TOKEN
 kubectl config set-context $CONTEXT --user ${CONTEXT}-token-user
 ```
 
+I THINK THIS MEANS that I don't actually need the kubeconfig file? `k config set-cred` stores it in the `~/.kube/config`.
+
+WHICH NEeeds to be moved from its default location when using the docker trick.
+
 <span class="end-collapsible-section"></span>
 
 <span class="begin-collapsible-section"></span>
