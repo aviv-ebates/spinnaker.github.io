@@ -12,6 +12,8 @@ The Spinnaker Kubernetes V2 provider fully supports manifest-based deployments.
 [Kubernetes provider V1](https://www.spinnaker.io/setup/install/providers/kubernetes/){:target="\_blank"}
 is still supported.
 
+## NEED TO REMIND USERS TO LOOK IN SUBfolders to see comments.
+
 ## Accounts
 
 For Kubernetes V2, a Spinnaker [Account](/concepts/providers/#accounts) maps to a
