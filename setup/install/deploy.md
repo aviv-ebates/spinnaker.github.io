@@ -45,6 +45,8 @@ deploy apply`.
    hal deploy connect
    ```
 
+THIS WILL NOT WORK in docker, because they listen to 127.0.0.1:9000 and we connect to 0.0.0.0:9000
+
    If necessary, set up an SSH tunnel to the host running Halyard.
 
    This  command automatically forwards ports 9000 (Deck UI) and 8084 (Gate API
