@@ -24,7 +24,7 @@ There are two ways you can install Halyard:
 * [locally on Debian/Ubuntu or macOS](#install-on-debianubuntu-and-macos)
 
    This can be on a desktop or laptop computer, or on a VM.
-   
+
 * [on Docker](#install-halyard-on-docker)
 
 > **Note**: If you need to run Halyard without access to public internet, read
@@ -121,6 +121,7 @@ installed](https://docs.docker.com/engine/installation/){:target="\_blank"}.
        --name halyard --rm \
        -v ~/.hal:/home/spinnaker/.hal \
        -it \
+       -e KUBECONFIG=/home/spinnaker/.hal/kube_config \
        gcr.io/spinnaker-marketplace/halyard:stable
    ```
 
@@ -194,3 +195,12 @@ To uninstall Halyard, just delete the container.
 ## Next steps
 
 Now that Halyard is running, it's time to [choose your cloud provider](/setup/install/providers/).
+
+
+ALSO add `alias hal='docker exec -it halyard /opt/halyard/bin/hal'` to your bashrc
+
+run this in docker:
+`hal config provider kubernetes account edit my-k8s-v2-account --kubeconfig-file /home/spinnaker/.hal/kube_config`
+
+
+the cluster needs to be added to the kubeconfig file, but there's no instructions for that?
