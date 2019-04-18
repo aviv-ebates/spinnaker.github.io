@@ -46,6 +46,14 @@ deploy apply`.
    ```
 
 THIS WILL NOT WORK in docker, because they listen to 127.0.0.1:9000 and we connect to 0.0.0.0:9000
+do this instead:
+```
+kubectl --context aviv-dev --kubeconfig /home/spinnaker/.hal/kube_config -n=spinnaker port-forward --address=0.0.0.0 spin-deck-pod 9000
+kubectl --context aviv-dev --kubeconfig /home/spinnaker/.hal/kube_config -n=spinnaker port-forward --address=0.0.0.0 spin-gate-pod 8084
+```
+(with good values of `spin-deck-pod`, `spin-gate-pod`)
+
+
 
    If necessary, set up an SSH tunnel to the host running Halyard.
 
