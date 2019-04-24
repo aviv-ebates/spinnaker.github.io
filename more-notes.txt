@@ -1,0 +1,4 @@
+When triggering a Pipeline, you should provide it with all artifacts (or with
+default values for artifacts). Same with Parameters.
+
+let GKE read images from another GCP Project: https://cloud.google.com/container-registry/docs/access-control#granting_users_and_other_projects_access_to_a_registry

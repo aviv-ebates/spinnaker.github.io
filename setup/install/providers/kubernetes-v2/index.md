@@ -27,7 +27,7 @@ The Kubernetes provider has two requirements:
 
 * A [`kubeconfig`](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/){:target="\_blank"} file
 
-    The `kubeconfig` file allows Spinnaker to authenticate against your cluster 
+    The `kubeconfig` file allows Spinnaker to authenticate against your cluster
     and to have read/write access to any resources you expect it to manage. You
     can think of it as private key file to let Spinnaker connect to your cluster.
     You can request this from your Kubernetes cluster administrator.
@@ -60,9 +60,11 @@ the following commands will create `spinnaker-service-account`, and add its
 token under a new user called `${CONTEXT}-token-user` in context `$CONTEXT`.
 
 ```bash
+# AS YOURSELF:
+
 CONTEXT=$(kubectl config current-context)
 
-# This service account uses the ClusterAdmin role -- this is not necessary, 
+# This service account uses the ClusterAdmin role -- this is not necessary,
 # more restrictive roles can by applied.
 kubectl apply --context $CONTEXT \
     -f https://spinnaker.io/downloads/kubernetes/service-account.yml
@@ -74,6 +76,10 @@ TOKEN=$(kubectl get secret --context $CONTEXT \
        -o jsonpath='{.secrets[0].name}') \
    -n spinnaker \
    -o jsonpath='{.data.token}' | base64 --decode)
+
+
+# A THE HAL USER:
+EXPORT KUBECONFIG=~/.hal/kube_config
 
 kubectl config set-credentials ${CONTEXT}-token-user --token $TOKEN
 

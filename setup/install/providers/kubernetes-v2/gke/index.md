@@ -57,6 +57,13 @@ __TL;DR__ Use the credentials you've downloaded to create a [Kubernetes service
 account](/setup/install/providers/kubernetes-v2/#optional-create-a-kubernetes-service-account)
 for Spinnaker to authenticate as.
 
+WHAT THIS IS TRYING TO SAY is that the `kubeconfig` file we get from google is using `gcloud`
+to authenticate at run-time, and that that is using the user of the node the pod is running on.
+and that what we want to do is set up an K8S user, and have kubectl bypass gcloud(?) and
+connect directly with the cluster using that access.
+
+also all the part about `kubectl config ....` needs to happen with the right `kube/config` file.
+
 # Next Steps
 
 [Follow the setup instructions for adding a Kubernetes account in
